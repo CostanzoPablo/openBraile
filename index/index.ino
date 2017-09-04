@@ -19,8 +19,8 @@ const int stepsPerRevolution = 48;
 Servo penServo;  
 
 // Initialize steppers for X- and Y-axis using this Arduino pins for the L293D H-bridge
-AF_Stepper myStepperY(stepsPerRevolution,2);            
-AF_Stepper myStepperX(stepsPerRevolution,1);  
+AF_Stepper myStepperY(stepsPerRevolution,1);            
+AF_Stepper myStepperX(stepsPerRevolution,2);  
 
 /* Structures, global variables    */
 struct point { 
@@ -81,9 +81,9 @@ void setup() {
   delay(100);
 
   // Decrease if necessary
-  myStepperX.setSpeed(600);
+  myStepperX.setSpeed(255);
 
-  myStepperY.setSpeed(600);  
+  myStepperY.setSpeed(10);  
   
 
   //  Set & move to initial default position
@@ -108,10 +108,10 @@ void setup() {
  ***********************/
 void loop() 
 {
-  
-  delay(100);
-
-  myStepperX.onestep(1,STEP);  
+  delay(5000);
+  myStepperX.step(1850, FORWARD, SINGLE);
+  delay(1000);
+  myStepperX.step(1850, BACKWARD, SINGLE);  
   /*
   myStepperX.onestep(sx,STEP);
   myStepperY.onestep(sy,STEP);
