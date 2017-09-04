@@ -107,7 +107,7 @@ void setup() {
  * void loop() - Main loop
  ***********************/
 void loop() 
-{
+{  
   delay(5000);
   myStepperX.step(1850, FORWARD, SINGLE);
   delay(1000);
